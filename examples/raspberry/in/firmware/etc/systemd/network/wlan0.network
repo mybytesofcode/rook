@@ -1,0 +1,8 @@
+[Match]
+Name=wlan0
+
+[Network]
+Address={{ .wifi.network }}
+DNS={{ .wifi.dns }}
+DHCP=no
+DNSSEC=no

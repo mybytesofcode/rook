@@ -1,0 +1,16 @@
+/etc/systemd/system/macspoof@.service
+
+[Unit]
+Description=MAC Address Change %I
+Wants=network-pre.target
+Before=network-pre.target
+BindsTo=sys-subsystem-net-devices-%i.device
+After=sys-subsystem-net-devices-%i.device
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/ip link set dev %i address {{ .ethernet.mac }}
+ExecStart=/usr/bin/ip link set dev %i up
+
+[Install]
+WantedBy=multi-user.target

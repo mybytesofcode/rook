@@ -1,0 +1,132 @@
+hostname: router.example.com
+
+nameserver: 1.1.1.1
+
+pacman:
+  mirror: http://mirror.archlinuxarm.org/$arch/$repo
+
+  ### Global
+  ## Geo-IP based mirror selection and load balancing
+  # http://mirror.archlinuxarm.org/$arch/$repo
+
+  ### Denmark
+  ## Aalborg
+  # http://dk.mirror.archlinuxarm.org/$arch/$repo
+
+  ### Germany
+  ## Aachen
+  # http://de3.mirror.archlinuxarm.org/$arch/$repo
+  ## Berlin
+  # http://de.mirror.archlinuxarm.org/$arch/$repo
+  ## Coburg
+  # http://de4.mirror.archlinuxarm.org/$arch/$repo
+  ## Falkenstein
+  # http://eu.mirror.archlinuxarm.org/$arch/$repo
+  # http://de5.mirror.archlinuxarm.org/$arch/$repo
+
+  ### Greece
+  ## Athens
+  # http://gr.mirror.archlinuxarm.org/$arch/$repo
+
+  ### Hungary
+  ## Budapest
+  # http://hu.mirror.archlinuxarm.org/$arch/$repo
+
+  ### Japan
+  ## Tokyo
+  # http://jp.mirror.archlinuxarm.org/$arch/$repo
+
+  ### Singapore
+  # http://sg.mirror.archlinuxarm.org/$arch/$repo
+
+  ### Taiwan
+  ## Hsinchu
+  # http://tw2.mirror.archlinuxarm.org/$arch/$repo
+  ## New Taipei City
+  # http://tw.mirror.archlinuxarm.org/$arch/$repo
+
+  ### United Kingdom
+  ## London
+  # http://uk.mirror.archlinuxarm.org/$arch/$repo
+
+  ### United States
+  ## California
+  # http://ca.us.mirror.archlinuxarm.org/$arch/$repo
+  ## Florida
+  # http://fl.us.mirror.archlinuxarm.org/$arch/$repo
+  ## New Jersey
+  # http://nj.us.mirror.archlinuxarm.org/$arch/$repo
+
+packages:
+  libraries:
+    - libbsd
+    - glib2
+
+  tools:
+    - sudo
+    - shadow
+    - pass
+    - htop
+    - jq
+    - yq
+    - git
+    - make
+    - usbutils
+    - pciutils
+    - traceroute
+
+  network:
+    - modemmanager
+    - usb_modeswitch
+    - wpa_supplicant
+    - hostapd
+    - dnsmasq
+
+  services:
+    - ntp
+    - iptables
+    - docker
+    - seatd
+
+  console:
+    - terminus-font
+
+  desktop:
+    components:
+      - polkit
+      - wlroots0.18
+      - sway
+      - swaybg
+      - ly
+      - nerd-fonts
+      - egl-wayland
+
+    utils:
+      - foot
+      - wofi
+      - imv
+      - nemo
+
+desktop:
+  enable: true
+
+ethernet:
+  enable: false
+  mac: e4:5f:01:20:1f:a3
+
+wifi:
+  enable: true
+  ssid: "router.example.com"
+  psk: "d4a9a70c25f7ac69230b7c7c87cf89515fc11c5d0f3cc2902b7495ab88c74132" # 12345678
+  client: true
+
+boot:
+  wifi: true
+  bluetooth: false
+
+ssh:
+  address: 0.0.0.0
+  port: 1234
+  user:
+    name: user
+    key: ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIG/xdlGatihDN23cYuNosZm47klN13kwLspf6B1Jb7L user@example.com

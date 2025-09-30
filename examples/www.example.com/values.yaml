@@ -1,0 +1,23 @@
+user:
+  user:
+    keys:
+      - ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIIG/xdlGatihDN23cYuNosZm47klN13kwLspf6B1Jb7L user@example.com
+
+openssh:
+  port: 1234
+
+knock:
+  openssh:
+    sequence: "2000,2001,2002"
+    timeout: 5
+    window: 10
+
+registry:
+  user: user
+  password: 123456
+
+nginx:
+  version: 1.28.0
+
+landing:
+  version: 0.1.0
